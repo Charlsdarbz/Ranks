@@ -1,0 +1,10 @@
+name: ranks
+version: '1.0'
+main: org.darbz.ranks.Ranks
+api-version: '1.21'
+prefix: RANKS
+authors: [ _Darbz_ ]
+description: Adds A Simple Rank System.
+website: https://darbz-skripting-experience-pf.carrd.co/
+commands:
+  rank:
