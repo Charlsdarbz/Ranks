@@ -1,5 +1,6 @@
 package org.darbz.ranks.managers
 
+import org.bukkit.Bukkit
 import org.bukkit.configuration.file.YamlConfiguration
 import org.darbz.ranks.Ranks
 import java.io.File
@@ -37,6 +38,11 @@ class rankManager(private val plugin: Ranks) {
             config.save(file)
         } catch (e: IOException) {
             e.printStackTrace()
+        }
+        if (Bukkit.getOfflinePlayer(uuid).isOnline)  {
+            var p = Bukkit.getPlayer(uuid)
+            plugin.nameTagManager().removeTag(p)
+            plugin.nameTagManager().newTag(p)
         }
     }
 }

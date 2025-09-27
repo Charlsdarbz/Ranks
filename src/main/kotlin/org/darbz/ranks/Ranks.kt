@@ -4,6 +4,7 @@ import org.bukkit.plugin.java.JavaPlugin
 import org.darbz.ranks.commands.completions.complete
 import org.darbz.ranks.commands.rankCommand
 import org.darbz.ranks.listeners.rankListener
+import org.darbz.ranks.managers.nameTagManager
 import org.darbz.ranks.managers.rankManager
 
 class Ranks : JavaPlugin() {
@@ -15,11 +16,14 @@ class Ranks : JavaPlugin() {
 
     private lateinit var rm: rankManager
 
+    private lateinit var nt: nameTagManager
+
     override fun onEnable() {
         instance = this
         enableMessage()
 
         rm = rankManager(this)
+        nt = nameTagManager(this)
         registerCommands()
         registerEvents()
     }
@@ -57,4 +61,6 @@ class Ranks : JavaPlugin() {
     }
 
     fun getRankManager(): rankManager = rm
+
+    fun nameTagManager(): nameTagManager = nt
 }
